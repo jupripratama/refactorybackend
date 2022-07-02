@@ -1,1 +1,1 @@
-# go-social-login
+# go-social-login Google Dan Facebook
