@@ -1,36 +1,29 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
+
+type Person struct {
+	Name string
+}
 
 func main() {
-	var Abjad = []string{
-		"A",
-		"B",
-		"C",
-		"D",
-		"E",
-		"F",
-		"G",
-		"H",
-		"I",
-		"J",
-		"K",
-		"L",
-		"M",
-		"N",
-		"O",
-		"P",
-		"Q",
-		"R",
-		"S",
-		"T",
-		"U",
-		"V",
-		"W",
-		"x",
-		"Y",
-		"Z"}
-	fmt.Println(Abjad[16:20:22]) // [apple, grape]
-	fmt.Println(Abjad[17:21])    // [apple, grape]
+	crowd := []Person{{"Zoey"}, {"Anna"}, {"Benni"}, {"Chris"}}
 
+	sort.Slice(crowd, func(i, j int) bool {
+		return crowd[i].Name <= crowd[j].Name
+	})
+
+	needle := "Benni"
+	idx := sort.Search(len(crowd), func(i int) bool {
+		return string(crowd[i].Name) >= needle
+	})
+
+	if crowd[idx].Name == needle {
+		fmt.Println("Found:", idx, crowd[idx])
+	} else {
+		fmt.Println("Found noting: ", idx)
+	}
 }
