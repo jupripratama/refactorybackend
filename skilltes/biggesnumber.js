@@ -1,4 +1,4 @@
-const num = 1000;
+const num = 123;
 const maxRedigit = function(num) {
    if(num < 100 || num > 999)
       return null
