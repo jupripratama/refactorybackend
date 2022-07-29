@@ -12,7 +12,7 @@ func maxRedigit(num int64) int64 {
 	sort.Slice(numArr, func(i, j int) bool {
 		return numArr[i] > numArr[j]
 	})
-	res, _ := strconv.ParseInt(strings.Join(numArr, ""), 10, 64)
+	res, _ := strconv.ParseInt(strings.Join(numArr, ""), 0, 10)
 	return res
 }
 func main() {
